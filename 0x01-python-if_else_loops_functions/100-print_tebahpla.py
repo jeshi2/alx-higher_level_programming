@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+output = ""
 for i in range(122, 96, -1):
-    print(chr(i), end='')
-    print(chr(i - 32), end='')
+    output += "{0}{1}".format(chr(i), chr(i - 33) if i > 97 else "")
 
-print()
+print(output)
 
