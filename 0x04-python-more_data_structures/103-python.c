@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <Python.h>
 
 /**
@@ -48,4 +49,3 @@ void print_python_bytes(PyObject *p)
 	for (i = 0; i < size && i < 10; i++)
 		printf("%02x%c", (unsigned char)string[i], i < size - 1 ? ' ' : '\n');
 }
-
