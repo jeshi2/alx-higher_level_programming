@@ -1,17 +1,7 @@
 #!/usr/bin/python3
 class Node:
-    """
-    Represents a node of a singly linked list.
-
-    Attributes:
-        __data (int): The data stored in the node.
-        __next_node (Node): The next node in the linked list.
-    """
-
     def __init__(self, data, next_node=None):
         """
-        Initializes a new instance of the Node class.
-
         Args:
             data (int): The data to be stored in the node.
                 Raises a TypeError if data is not an integer.
@@ -25,7 +15,6 @@ class Node:
     def data(self):
         """
         Retrieves the data stored in the node.
-
         Returns:
             int: The data stored in the node.
         """
@@ -35,7 +24,6 @@ class Node:
     def data(self, value):
         """
         Sets the data stored in the node.
-
         Args:
             value (int): The data to be stored in the node.
                 Raises a TypeError if value is not an integer.
@@ -48,7 +36,6 @@ class Node:
     def next_node(self):
         """
         Retrieves the next node in the linked list.
-
         Returns:
             Node: The next node in the linked list.
         """
@@ -58,7 +45,6 @@ class Node:
     def next_node(self, value):
         """
         Sets the next node in the linked list.
-
         Args:
             value (Node): The next node in the linked list.
                 Raises a TypeError if value is not a Node object.
@@ -71,7 +57,6 @@ class Node:
 class SinglyLinkedList:
     """
     Represents a singly linked list.
-
     Attributes:
         __head (Node): The head node of the linked list.
     """
@@ -83,7 +68,6 @@ class SinglyLinkedList:
     def sorted_insert(self, value):
         """
         Inserts a new node into the correct sorted position in the linked list.
-
         Args:
             value (int): The value to be inserted.
         """
@@ -102,7 +86,6 @@ class SinglyLinkedList:
     def __str__(self):
         """
         Returns a string representation of the linked list.
-
         Returns:
             str: The string representation of the linked list.
         """
