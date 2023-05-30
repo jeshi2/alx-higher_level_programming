@@ -1,17 +1,8 @@
 #!/usr/bin/python3
 class Square:
-    """
-    Represents a square.
-
-    Attributes:
-        __size (int): The size of the square.
-        __position (tuple): The position of the square.
-    """
-
     def __init__(self, size=0, position=(0, 0)):
         """
         Initializes a new instance of the Square class.
-
         Args:
             size (int): The size of the square. Defaults to 0.
                 Raises a TypeError if size is not an integer.
@@ -26,7 +17,6 @@ class Square:
     def size(self):
         """
         Retrieves the size of the square.
-
         Returns:
             int: The size of the square.
         """
@@ -36,7 +26,6 @@ class Square:
     def size(self, value):
         """
         Sets the size of the square.
-
         Args:
             value (int): The size of the square.
                 Raises a TypeError if value is not an integer.
@@ -52,7 +41,6 @@ class Square:
     def position(self):
         """
         Retrieves the position of the square.
-
         Returns:
             tuple: The position of the square.
         """
@@ -62,7 +50,6 @@ class Square:
     def position(self, value):
         """
         Sets the position of the square.
-
         Args:
             value (tuple): The position of the square.
                 Raises a TypeError if value is not a tuple of 2 positive integers.
@@ -75,7 +62,6 @@ class Square:
     def area(self):
         """
         Calculates the area of the square.
-
         Returns:
             int: The area of the square.
         """
@@ -96,7 +82,6 @@ class Square:
     def __str__(self):
         """
         Returns a string representation of the square.
-
         Returns:
             str: The string representation of the square.
         """
