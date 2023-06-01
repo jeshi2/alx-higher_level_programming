@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+"""singly linked implementation in python"""
+
+
 class Node:
+    """a node instance of a single linked list"""
+
     def __init__(self, data, next_node=None):
         """
         Args:
