@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+"""defined square module"""
+
+
 class Square:
+    """class for square"""
+
     def __init__(self, size=0):
         """
         Args:
