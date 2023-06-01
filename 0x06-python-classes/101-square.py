@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+
+"""square class"""
+
+
 class Square:
+    """clas square rep"""
+
     def __init__(self, size=0, position=(0, 0)):
         """
         Initializes a new instance of the Square class.
