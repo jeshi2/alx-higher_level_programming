@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+"""defined square class"""
+
+
 class Square:
+    """square class creation"""
+
     def __init__(self, size=0, position=(0, 0)):
         """Initializes a new instance of the Square class.
         Args:
@@ -67,4 +72,3 @@ class Square:
                 print()
             for _ in range(self.__size):
                 print(" " * self.__position[0] + "#" * self.__size)
-
