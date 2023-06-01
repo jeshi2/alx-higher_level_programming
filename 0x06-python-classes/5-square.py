@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+"""square module continue"""
+
+
 class Square:
+    """class for square creation"""
+
     def __init__(self, size=0):
         """
         Initializes a new instance of the Square class.
