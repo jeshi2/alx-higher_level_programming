@@ -4,6 +4,11 @@
 """
 
 def matrix_mul(m_a, m_b):
+    """
+    print_square: prints a square with the character #.
+    size (int): multiplies 2 matrices
+    """
+
     if not isinstance(m_a, list) or not isinstance(m_b, list):
         raise TypeError("m_a must be a list or m_b must be a list")
 
