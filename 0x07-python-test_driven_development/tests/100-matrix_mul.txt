@@ -17,7 +17,6 @@ Check: no args:
  ...
  TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
 
-
 1. Test valid multiplication:
 >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
 [[7, 10], [15, 22]]
@@ -91,4 +90,3 @@ TypeError: each row of m_a must be of the same size or each row of m_b must be o
 Traceback (most recent call last):
     ...
 ValueError: m_a and m_b can't be multiplied
-
