@@ -5,7 +5,7 @@
 /**
  * print_python_string - Prints info about python str
  * @p: pointer to PyObject
- * Return: Nothing
+ * Return: error message if p is not valid
  **/
 void print_python_string(PyObject *p)
 {
@@ -33,4 +33,3 @@ void print_python_string(PyObject *p)
 
     PyMem_Free(value);
 }
-
