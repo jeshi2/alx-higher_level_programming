@@ -5,11 +5,11 @@
 /**
  * print_python_string - Prints info about python str
  * @p: pointer to PyObject
- * Return: Nothing
+ * Return: error messages
  **/
 void print_python_string(PyObject *p)
 {
-    ssize_t *length;
+    Py_ssize_t length = PyUnicode_GET_LENGTH(p);
     const char *value;
     if (!PyUnicode_Check(p))
     {
@@ -17,8 +17,7 @@ void print_python_string(PyObject *p)
         return;
     }
     value = PyUnicode_AsUTF8(p);
-    length = PyUnicode_GET_LENGTH(p);
-
+    
     if (!value)
     {
         fprintf(stderr, "[ERROR] Invalid String Object\n");
