@@ -34,15 +34,15 @@ class Base:
         return json.dumps(list_dictionaries)
 
     @classmethod
-    def save_to_file(cls, list_objs):
-        """Save a list of instances to a file in JSON format"""
-        filename = cls.__name__ + ".json"
-        json_list = []
-        if list_objs is not None:
-            for obj in list_objs:
-                json_list.append(obj.to_dictionary())
-        with open(filename, mode='w', encoding='utf-8') as file:
-            file.write(cls.to_json_string(json_list))
+    def save_to_file_csv(cls, list_objs):
+        """Serializes objects to CSV file"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w") as file:
+            if list_objs is None:
+                file.write("")
+            else:
+                csv_data = [obj.to_csv() for obj in list_objs]  
+                file.write("\n".join(csv_data))
 
     @staticmethod
     def from_json_string(json_string):
@@ -62,14 +62,13 @@ class Base:
         return dummy
 
     @classmethod
-    def load_from_file(cls):
-        """Load instances from a file in JSON format"""
-        filename = cls.__name__ + ".json"
+    def load_from_file_csv(cls):
+        """Load instances from a file in CSV format"""
+        filename = cls.__name__ + ".csv"
         try:
-            with open(filename, mode='r', encoding='utf-8') as file:
-                json_string = file.read()
-                dictionaries = cls.from_json_string(json_string)
-                instances = [cls.create(**dictionary) for dictionary in dictionaries]
+            with open(filename, mode='r') as file:
+                csv_data = file.read().splitlines()
+                instances = [cls.from_csv(line) for line in csv_data]
                 return instances
         except FileNotFoundError:
             return []
