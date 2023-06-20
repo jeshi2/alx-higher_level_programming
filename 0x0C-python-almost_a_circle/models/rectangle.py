@@ -54,8 +54,10 @@ class Rectangle(Base):
         Raises:
             ValueError: If the value is not a positive integer.
         """
-        if not isinstance(value, int) or value <= 0:
-            raise ValueError("Width must be a positive integer")
+        if not isinstance(value, int):
+            raise ValueError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -76,8 +78,10 @@ class Rectangle(Base):
         Raises:
             ValueError: If the value is not a positive integer.
         """
-        if not isinstance(value, int) or value <= 0:
-            raise ValueError("Height must be a positive integer")
+        if not isinstance(value, int):
+            raise ValueError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -99,7 +103,9 @@ class Rectangle(Base):
             ValueError: If the value is not an integer.
         """
         if not isinstance(value, int):
-            raise ValueError("x-coordinate must be an integer")
+            raise ValueError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -121,5 +127,7 @@ class Rectangle(Base):
             ValueError: If the value is not an integer.
         """
         if not isinstance(value, int):
-            raise ValueError("y-coordinate must be an integer")
+            raise ValueError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
