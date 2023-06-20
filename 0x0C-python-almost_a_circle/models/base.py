@@ -3,6 +3,7 @@
 """
 import json
 import csv
+import turtle
 class Base:
     """
     Base class to manage id attribute.
@@ -97,3 +98,42 @@ class Base:
         except FileNotFoundError:
             return []
         return obj_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Opens a window and draws all the Rectangles and Squares.
+        """
+        # Create a Turtle object
+        t = turtle.Turtle()
+
+        # Set the speed of the turtle
+        t.speed(2)
+
+        # Set up the screen
+        screen = turtle.Screen()
+        screen.title("Drawing Rectangles and Squares")
+        screen.bgcolor("white")
+
+        # Draw the rectangles
+        for rect in list_rectangles:
+            t.penup()
+            t.goto(rect.x, rect.y)
+            t.pendown()
+            for _ in range(2):
+                t.forward(rect.width)
+                t.right(90)
+                t.forward(rect.height)
+                t.right(90)
+
+        # Draw the squares
+        for square in list_squares:
+            t.penup()
+            t.goto(square.x, square.y)
+            t.pendown()
+            for _ in range(4):
+                t.forward(square.size)
+                t.right(90)
+
+        # Close the turtle graphics window when clicked
+        turtle.done()
