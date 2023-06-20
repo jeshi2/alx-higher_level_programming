@@ -14,21 +14,7 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """
-        Constructor for Rectangle class.
-
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-            x (int): Optional. The x-coordinate of the rectangle's position.
-            y (int): Optional. The y-coordinate of the rectangle's position.
-            id (int): Optional. The id value to assign.
-
-        Attributes:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-            x (int): The x-coordinate of the rectangle's position.
-            y (int): The y-coordinate of the rectangle's position.
-            id (int): The unique identifier of the rectangle.
+        Constructor for Rectangle class.    
         """
         super().__init__(id)
         self.width = width
@@ -47,12 +33,6 @@ class Rectangle(Base):
     def width(self, value):
         """
         Setter for the width attribute.
-
-        Args:
-            value (int): The value to set as the width.
-
-        Raises:
-            ValueError: If the value is not a positive integer.
         """
         if not isinstance(value, int):
             raise ValueError("width must be an integer")
@@ -71,12 +51,6 @@ class Rectangle(Base):
     def height(self, value):
         """
         Setter for the height attribute.
-
-        Args:
-            value (int): The value to set as the height.
-
-        Raises:
-            ValueError: If the value is not a positive integer.
         """
         if not isinstance(value, int):
             raise ValueError("height must be an integer")
@@ -95,12 +69,6 @@ class Rectangle(Base):
     def x(self, value):
         """
         Setter for the x-coordinate attribute.
-
-        Args:
-            value (int): The value to set as the x-coordinate.
-
-        Raises:
-            ValueError: If the value is not an integer.
         """
         if not isinstance(value, int):
             raise ValueError("x must be an integer")
@@ -119,12 +87,6 @@ class Rectangle(Base):
     def y(self, value):
         """
         Setter for the y-coordinate attribute.
-
-        Args:
-            value (int): The value to set as the y-coordinate.
-
-        Raises:
-            ValueError: If the value is not an integer.
         """
         if not isinstance(value, int):
             raise ValueError("y must be an integer")
