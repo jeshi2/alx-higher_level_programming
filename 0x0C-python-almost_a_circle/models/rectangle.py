@@ -101,9 +101,12 @@ class Rectangle(Base):
         return self.width * self.height
     def display(self):
         """print the rectangle instance using the character '#'
+        considering the x and y coordinates
         """
+        for _ in range(self.y):
+            print()
         for _ in range(self.height):
-            print("#" * self.width)
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """returns the string rep of the rectangle
