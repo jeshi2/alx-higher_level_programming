@@ -61,14 +61,14 @@ class Rectangle(Base):
     @property
     def x(self):
         """
-        Getter for the x-coordinate attribute.
+        Getter for the x attribute.
         """
         return self.__x
 
     @x.setter
     def x(self, value):
         """
-        Setter for the x-coordinate attribute.
+        Setter for the x attribute.
         """
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
@@ -79,17 +79,23 @@ class Rectangle(Base):
     @property
     def y(self):
         """
-        Getter for the y-coordinate attribute.
+        Getter for the y attribute.
         """
         return self.__y
 
     @y.setter
     def y(self, value):
         """
-        Setter for the y-coordinate attribute.
+        Setter for the y attribute.
         """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+    
+    """area"""
+    def area(self):
+        """calculates and return the area of the rectangle
+        """
+        return self.width * self.height
