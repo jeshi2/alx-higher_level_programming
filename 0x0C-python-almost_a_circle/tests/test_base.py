@@ -1,7 +1,13 @@
 #!/usr/bin/python3
 import unittest
 from models.base import Base
+from models.square import Square
+import sys
+from io import StringIO
 
+import json
+from models.rectangle import Rectangle
+import os
 """module test
 """
 
@@ -47,6 +53,27 @@ class TestBase(unittest.TestCase):
 
     def test_from_json_string_exists(self):
         self.assertEqual(Base.from_json_string('[{ "id": 89 }]'), [{'id': 89}])
+    
+    def setUp(self):
+        """
+        function to redirect stdout
+        """
+        sys.stdout = StringIO()
 
+    def tearDown(self):
+        """
+        cleans everything
+        """
+        sys.stdout = sys.__stdout__
+
+    def test_rectangle(self):
+        """
+        Test check for rectangle
+        """
+        R1 = Rectangle(4, 5, 6)
+        R1_dict = R1.to_dictionary()
+        R2 = Rectangle.create(**R1_dict)
+        self.assertNotEqual(R1, R2)
+ 
 if __name__ == '__main__':
     unittest.main()
