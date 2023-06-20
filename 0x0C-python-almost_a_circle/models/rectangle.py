@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""import model base
+"""
+
 from models.base import Base
 """defined class rectangle
 """
