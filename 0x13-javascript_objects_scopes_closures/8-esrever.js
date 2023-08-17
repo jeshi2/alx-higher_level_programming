@@ -2,10 +2,8 @@
 
 exports.esrever = function (list) {
   const reverseList = [];
-  // let i = list.legth -1;
-  while (list.legth > 0) {
-    reverseList.push(list.pop());
-    // i--;
+  for (let i = list.length; i > 0; i--) {
+    reverseList.push(list[i - 1]);
   }
   return reverseList;
 };
