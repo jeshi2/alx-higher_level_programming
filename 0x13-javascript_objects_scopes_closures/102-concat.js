@@ -20,10 +20,9 @@ fs.readFile(sourceFile1, 'utf-8', (err1, data1) => {
     fs.writeFile(destinationFile, concatenatedData, 'utf-8', (err3) => {
       if (err3) {
         console.error(err3);
-        return;
       }
 
-      //console.log(`Concatenated data saved to ${destinationFile}`);
+      // console.log(`Concatenated data saved to ${destinationFile}`);
     });
   });
 });
