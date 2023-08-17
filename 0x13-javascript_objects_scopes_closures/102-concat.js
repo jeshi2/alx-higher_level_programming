@@ -23,7 +23,7 @@ fs.readFile(sourceFile1, 'utf-8', (err1, data1) => {
         return;
       }
 
-      console.log(`Concatenated data saved to ${destinationFile}`);
+      //console.log(`Concatenated data saved to ${destinationFile}`);
     });
   });
 });
