@@ -11,17 +11,30 @@ if __name__ == '__main__':
     """
     Connect to the database and retrieve states that match the provided argument.
     """
+    if len(sys.argv) != 5:
+        print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
+        sys.exit(1)
+
     username = argv[1]
     password = argv[2]
     database = argv[3]
-    search_name = argv[4]
+    state_name = argv[4]
 
-    db = MySQLdb.connect(host="localhost", user=username, passwd=password, db=database)
+    try:
+        db = MySQLdb.connect(host="localhost", user=username, passwd=password, db=database)
 
-    cur = db.cursor()
-    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY states.id ASC"
-    cur.execute(query, (search_name,))
-    rows = cur.fetchall()
+        cur = db.cursor()
+        query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY states.id ASC"
+        cur.execute(query, (state_name,))
+        states = cur.fetchall()
+        
+        for state in states:
+            print(state)
 
-    for row in rows:
-        print(row)
+    except MySQLdb.Error as e:
+        print("MySQL Error: {}".format(e))
+        sys.exit(1)
+
+    finally:
+        if db:
+            db.close()
