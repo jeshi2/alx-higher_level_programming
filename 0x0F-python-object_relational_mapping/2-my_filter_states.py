@@ -24,7 +24,7 @@ def main():
         db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
         cursor = db.cursor()
 
-        query = "SELECT * FROM states WHERE name = %s ORDER BY states.id"
+        query = "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC"
         cursor.execute(query, (state_name,))
         states = cursor.fetchall()
 
