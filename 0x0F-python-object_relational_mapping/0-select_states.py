@@ -6,7 +6,7 @@ a script that list all states from the database
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
+def main():
     """
     access database
     """
@@ -36,3 +36,5 @@ if __name__ == "__main__":
     finally:
         if db:
             db.close()
+if __name__ == "__main__":
+    main()
