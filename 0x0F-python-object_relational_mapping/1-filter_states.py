@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Script to retrieve and display states with names starting with 'N' from a MySQL database.
+Script to retrieve and display states with names starting 
+with 'N' from a MySQL database.
 """
 
 import MySQLdb
@@ -19,10 +20,12 @@ def main():
     database = sys.argv[3]
 
     try:
-        db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+        db = MySQLdb.connect(host="localhost", port=3306, user=username, 
+                passwd=password, db=database)
         cursor = db.cursor()
 
-        query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC"
+        query = "SELECT * FROM states WHERE name 
+        LIKE BINARY 'N%' ORDER BY states.id ASC"
         cursor.execute(query)
         states = cursor.fetchall()
 
