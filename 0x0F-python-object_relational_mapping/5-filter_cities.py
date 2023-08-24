@@ -35,7 +35,7 @@ if __name__ == '__main__':
         cursor = db.cursor()
         
         if not table_exist(cursor):
-            return
+            print("null")
 
         else:
             query = """
