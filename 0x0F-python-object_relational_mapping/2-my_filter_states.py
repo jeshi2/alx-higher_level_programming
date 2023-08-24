@@ -24,7 +24,7 @@ if __name__ == '__main__':
         db = MySQLdb.connect(host="localhost", user=username, passwd=password, db=database)
 
         cur = db.cursor()
-        query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY states.id ASC"
+        query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
         cur.execute(query, (state_name,))
         states = cur.fetchall()
         
