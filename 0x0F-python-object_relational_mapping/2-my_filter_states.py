@@ -5,21 +5,26 @@ matching a given argument from a MySQL database.
 """
 
 import MySQLdb
-import sys
+from sys import argv
 
 if __name__ == '__main__':
     """
-    Access the database and retrieve the states
-    that match the criteria
+    Connect to the database and retrieve states that match the provided argument.
     """
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
+    username = argv[1]
+    password = argv[2]
+    database = argv[3]
+    search_name = argv[4]
+
+    db = MySQLdb.connect(host="localhost", user=username, passwd=password, db=database)
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states \
-                 WHERE name LIKE BINARY 'N%' \
-                 ORDER BY states.id ASC")
+    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY states.id ASC"
+    cur.execute(query, (search_name,))
     rows = cur.fetchall()
 
     for row in rows:
         print(row)
+
+    cur.close()
+    db.close()
