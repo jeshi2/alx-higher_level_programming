@@ -7,37 +7,19 @@ matching a given argument from a MySQL database.
 import MySQLdb
 import sys
 
-def main():
+if __name__ == '__main__':
     """
-    connect to the database and retrieve filtered states.
+    Access the database and retrieve the states
+    that match the criteria
     """
-    if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
-        sys.exit(1)
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
 
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states \
+                 WHERE name LIKE BINARY 'N%' \
+                 ORDER BY states.id ASC")
+    rows = cur.fetchall()
 
-    try:
-        db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
-        cursor = db.cursor()
-
-        query = "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC"
-        cursor.execute(query, (state_name,))
-        states = cursor.fetchall()
-
-        for state in states:
-            print(state)
-
-    except MySQLdb.Error as e:
-        print("MySQL Error: {}".format(e))
-        sys.exit(1)
-
-    finally:
-        if db:
-            db.close()
-
-if __name__ == "__main__":
-    main()
+    for row in rows:
+        print(row)
