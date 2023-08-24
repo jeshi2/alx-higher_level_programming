@@ -5,7 +5,7 @@ matching a given argument from a MySQL database.
 """
 
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == '__main__':
     """
@@ -15,13 +15,13 @@ if __name__ == '__main__':
         print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
         sys.exit(1)
 
-    username = argv[1]
-    password = argv[2]
-    database = argv[3]
-    state_name = argv[4]
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
 
     try:
-        db = MySQLdb.connect(host="localhost", user=username, passwd=password, db=database)
+        db = MySQLdb.connect(host="localhost", port=3306,  user=username, passwd=password, db=database)
 
         cur = db.cursor()
         query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
