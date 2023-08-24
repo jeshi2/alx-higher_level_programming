@@ -1,10 +1,15 @@
 #!/usr/bin/python3
-""" a script that list all states from the database """
+""" 
+a script that list all states from the database 
+"""
 
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
+    """
+    access database
+    """
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
         sys.exit(1)
