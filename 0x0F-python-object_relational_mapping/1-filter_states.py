@@ -22,7 +22,7 @@ def main():
         db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
         cursor = db.cursor()
 
-        query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY state.id ASC"
+        query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC"
         cursor.execute(query)
         states = cursor.fetchall()
 
