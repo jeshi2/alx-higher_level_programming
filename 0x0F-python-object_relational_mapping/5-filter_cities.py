@@ -6,17 +6,6 @@ script list all cities of given state on db
 import MySQLdb
 import sys
 
-def table_exist(cursor):
-    """
-    check if table exists
-    """
-    cursor.execute("SHOW TABLES LIKE 'cities'")
-    city_table_exists = cursor.fetchone()
-    cursor.execute("SHOW TABLES LIKE 'states'")
-    state_table_exists = cursor.fetchone()
-
-    return city_table_exists and state_table_exists
-
 if __name__ == '__main__':
     """
     connect db and retrieve cities of the specified state
@@ -33,23 +22,19 @@ if __name__ == '__main__':
     try:
         db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
         cursor = db.cursor()
-        
-        if not table_exist(cursor):
-            print("null")
 
-        else:
-            query = """
-            SELECT GROUP_CONCAT(cities.name SEPARATOR ', ')
-            FROM cities
-            JOIN states ON cities.state_id = states.id
-            WHERE states.name = %s
-            ORDER BY cities.id ASC
-            """
-            cursor.execute(query, (state_name,))
-            cities = cursor.fetchone()[0]
+        query = """
+        SELECT cities.name
+        FROM cities
+        JOIN states ON cities.state_id = states.id
+        WHERE states.name = %s
+        ORDER BY cities.id ASC
+        """
+        cursor.execute(query, (state_name,))
+        cities = cursor.fetchall()
 
-            if cities:
-                print(cities)
+        city_names = [city[0] for city in cities]
+        print(', '.join(city_names))
 
     except MySQLdb.Error as e:
         print("MySQL Error: {}".format(e))
