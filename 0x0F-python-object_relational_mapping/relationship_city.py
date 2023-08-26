@@ -1,16 +1,15 @@
 #!/usr/bin/python3
 """
-module contains the City class that represents a city linked to a state.
+class definition of a State and an instance
 """
 
-from sqlalchemy import Column, Integer, String, ForeignKe
-from sqlalchemy.ext.declarative import declarative_basey
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
 from relationship_state import Base
 
 
 class City(Base):
     """
-    base city represents a city linked to a state
     inherits from Base
     links to the MySQL table states
     class attribute id that represents a column of an auto-generated,
@@ -23,4 +22,4 @@ class City(Base):
     __tablename__ = 'cities'
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    state_id = Column(Integer, ForeignKey("states.id"), nullable=False) 
