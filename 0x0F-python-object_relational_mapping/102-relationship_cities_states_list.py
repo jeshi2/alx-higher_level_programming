@@ -11,7 +11,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-    """connect db"""
+    """
+    connect db to retrive contecnt infomation
+    """
+
     if len(sys.argv) != 4:
         """ db connect """
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
