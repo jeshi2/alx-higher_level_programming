@@ -13,7 +13,6 @@ if __name__ == "__main__":
     """
     connect to db to retrive the db 
     """
-
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
         sys.exit(1)
