@@ -94,4 +94,62 @@ When you type a URL like "google.com" into your browser, the browser performs DN
 
 Respect copyright and avoid plagiarism. Ensure that you create original content and give proper attribution when using external sources. Plagiarism is strictly prohibited.
 
+# Bash Scripts Overview
+
+This repository contains several Bash scripts designed to perform various tasks using the `curl` command-line tool. Each script is designed to solve a specific problem or accomplish a particular task. Below is a brief overview of each script:
+
+## 0-body_size.sh
+
+- **Description**: This script takes a URL as an argument, sends a GET request to that URL using `curl`, and displays the size of the response body in bytes.
+- **Usage**: `./0-body_size.sh <URL>`
+
+## 1-body.sh
+
+- **Description**: This script takes a URL as an argument, sends a GET request to that URL using `curl`, and displays the body of the response if the response status code is 200.
+- **Usage**: `./1-body.sh <URL>`
+
+## 2-delete.sh
+
+- **Description**: This script takes a URL as an argument, sends a DELETE request to that URL using `curl`, and displays the body of the response.
+- **Usage**: `./2-delete.sh <URL>`
+
+## 3-methods.sh
+
+- **Description**: This script takes a URL as an argument, sends an OPTIONS request to that URL using `curl`, and displays the allowed HTTP methods.
+- **Usage**: `./3-methods.sh <URL>`
+
+## 4-header.sh
+
+- **Description**: This script takes a URL as an argument, sends a GET request to that URL using `curl` with a custom header, and displays the body of the response.
+- **Usage**: `./4-header.sh <URL>`
+
+## 5-post_params.sh
+
+- **Description**: This script takes a URL as an argument, sends a POST request to that URL using `curl` with specified variables in the request body, and displays the body of the response.
+- **Usage**: `./5-post_params.sh <URL>`
+
+## 6-peak.py
+
+- **Description**: This script contains a Python function `find_peak` that finds a peak in a list of unsorted integers with a low complexity algorithm (O(log(n))).
+- **Usage**: The function `find_peak` can be imported and used in other Python scripts.
+
+## 100-status_code.sh
+
+- **Description**: This script takes a URL as an argument, sends a request to that URL using `curl`, and displays only the status code of the response.
+- **Usage**: `./100-status_code.sh <URL>`
+
+## 101-post_json.sh
+
+- **Description**: This script takes a URL and a JSON file as arguments, sends a JSON POST request to the URL with the contents of the JSON file in the request body, and displays whether the JSON content is valid.
+- **Usage**: `./101-post_json.sh <URL> <JSON_FILE>`
+
+## 102-catch_me.sh
+
+- **Description**: This script makes a request to `0.0.0.0:5000/catch_me` using `curl` in a way that the server responds with the message "You got me!" in the body of the response.
+- **Usage**: `./102-catch_me.sh`
+
+Each script serves a specific purpose and can be used to interact with web services, perform HTTP requests, or manipulate data. Refer to individual script files for detailed usage instructions.
+
+
+
 This README provides a foundational understanding of various networking concepts and tools related to HTTP and URL manipulation. Further exploration and hands-on practice are recommended to solidify your knowledge.
