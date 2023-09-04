@@ -21,7 +21,11 @@ def list_commits(owner, repo, count=10):
 
         if response.status_code == 200:
             commits = response.json()
-            for commit in commits:
+            sorted_commits = sorted(
+                commits,
+                key=lambda x: x['commit']['author']['date'],
+                reverse=True)
+            for commit in sorted_commits:
                 sha = commit['sha']
                 author_name = commit['commit']['author']['name']
                 print(f"{sha}: {author_name}")
