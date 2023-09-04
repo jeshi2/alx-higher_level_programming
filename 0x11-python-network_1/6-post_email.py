@@ -16,7 +16,7 @@ def post_email(url, email):
     try:
         data = {'email': email}
         response = requests.post(url, data=data)
-        print("Your email is:", email)
+        # print("Your email is:", email)
         print(response.text)
     except Exception as e:
         print(e)
