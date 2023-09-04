@@ -133,20 +133,6 @@ Usage:
 
 ### 1-hbtn_status.py
 
-```python
-import urllib.request
-
-# Send a GET request to the specified URL
-with urllib.request.urlopen("https://alx-intranet.hbtn.io/status") as response:
-    # Read the response and decode it as UTF-8
-    content = response.read().decode("utf-8")
-
-# Print the content type and content of the response
-print("Body response:")
-print("\t- type:", type(content))
-print("\t- content:", content)
-```
-
 1. We import the `urllib.request` module to make HTTP requests.
 
 2. We use a `with` statement to open a connection to the URL `https://alx-intranet.hbtn.io/status`.
@@ -160,29 +146,6 @@ print("\t- content:", content)
 6. Finally, we print the content type (data type) and the content of the response.
 
 ### 2-post_email.py
-
-```python
-import urllib.request
-import sys
-
-# Get the URL and email from command-line arguments
-url = sys.argv[1]
-email = sys.argv[2]
-
-# Create a dictionary with the email data
-data = {'email': email}
-
-# Encode the data and convert it to bytes
-data = urllib.parse.urlencode(data).encode('utf-8')
-
-# Send a POST request with the email data to the specified URL
-with urllib.request.urlopen(url, data=data) as response:
-    # Read and decode the response
-    content = response.read().decode('utf-8')
-
-# Print the response content
-print("Your email is:", content)
-```
 
 1. We import `urllib.request` for making HTTP requests and `sys` for handling command-line arguments.
 
@@ -200,28 +163,6 @@ print("Your email is:", content)
 
 ### 3-error_code.py
 
-```python
-import urllib.request
-import sys
-
-# Get the URL from command-line arguments
-url = sys.argv[1]
-
-try:
-    # Send a GET request to the specified URL
-    with urllib.request.urlopen(url) as response:
-        # Check the HTTP status code
-        if response.status >= 400:
-            print("Error code:", response.status)
-        else:
-            # Read and decode the response
-            content = response.read().decode('utf-8')
-            print(content)
-except urllib.error.HTTPError as e:
-    # Handle HTTP errors and print the error code
-    print("Error code:", e.code)
-```
-
 1. We import `urllib.request` for making HTTP requests, `urllib.error.HTTPError` for handling HTTP errors, and `sys` for handling command-line arguments.
 
 2. We retrieve the URL from the command-line arguments.
@@ -236,18 +177,6 @@ except urllib.error.HTTPError as e:
 
 ### 4-hbtn_status.py
 
-```python
-import requests
-
-# Send a GET request to the specified URL
-response = requests.get("https://alx-intranet.hbtn.io/status")
-
-# Extract and print information from the response
-print("Body response:")
-print("\t- type:", type(response.text))
-print("\t- content:", response.text)
-```
-
 1. We import the `requests` package for making HTTP requests.
 
 2. We send a GET request to the URL "https://alx-intranet.hbtn.io/status" using `requests.get()`. The response is stored in the `response` variable.
@@ -255,20 +184,6 @@ print("\t- content:", response.text)
 3. We extract and print information from the response. This includes the data type of the response content and the content itself.
 
 ### 5-hbtn_header.py
-
-```python
-import requests
-import sys
-
-# Get the URL from command-line arguments
-url = sys.argv[1]
-
-# Send a GET request to the specified URL
-response = requests.get(url)
-
-# Extract and print the value of the X-Request-Id header
-print(response.headers.get('X-Request-Id'))
-```
 
 1. We import the `requests` package for making HTTP requests and `sys` for handling command-line arguments.
 
@@ -282,24 +197,6 @@ print(response.headers.get('X-Request-Id'))
 
 ### 6-post_email.py
 
-```python
-import requests
-import sys
-
-# Get the URL and email from command-line arguments
-url = sys.argv[1]
-email = sys.argv[2]
-
-# Create a dictionary with the email data
-data = {'email': email}
-
-# Send a POST request with the email data to the specified URL
-response = requests.post(url, data=data)
-
-# Extract and print the response content
-print("Your email is:", response.text)
-```
-
 1. We import the `requests` package for making HTTP requests and `sys` for handling command-line arguments.
 
 2. We retrieve the URL and email from the command-line arguments.
@@ -312,23 +209,6 @@ print("Your email is:", response.text)
 
 ### 7-error_code.py
 
-```python
-import requests
-import sys
-
-# Get the URL from command-line arguments
-url = sys.argv[1]
-
-# Send a GET request to the specified URL
-response = requests.get(url)
-
-# Check the HTTP status code
-if response.status_code >= 400:
-    print("Error code:", response.status_code)
-else:
-    print(response.text)
-```
-
 1. We import the `requests` package for making HTTP requests and `sys` for handling command-line arguments.
 
 2. We retrieve the URL from the command-line arguments.
@@ -338,29 +218,6 @@ else:
 4. We check the HTTP status code of the response. If it's greater than or equal to 400, we print an error message with the HTTP status code. Otherwise, we print the response content.
 
 ### 8-json_api.py
-
-```python
-import requests
-import sys
-
-# Get the letter from command-line arguments (default to empty string if not provided)
-letter = sys.argv[1] if len(sys.argv) > 1 else ""
-
-# Send a POST request to http://0.0.0.0:5000/search_user with the letter as a parameter
-response = requests.post("http://0.0.0.0:5000/search_user", data={'q': letter})
-
-try:
-    # Parse the JSON response
-    data = response.json()
-
-    # Check if the response is not empty and contains 'id' and 'name' keys
-    if data and 'id' in data and 'name' in data:
-        print("[{}] {}".format(data['id'], data['name']))
-    else:
-        print("No result")
-except ValueError:
-    print("Not a valid JSON")
-```
 
 1. We import the `requests` package for making HTTP requests and `sys` for handling command-line arguments.
 
@@ -374,28 +231,6 @@ except ValueError:
 
 ### 10-my_github.py
 
-```python
-import requests
-import sys
-
-# Get the GitHub username and personal access token from command-line arguments
-username = sys.argv[1]
-token = sys.argv[2]
-
-# Set up the Basic Authentication using the token
-auth = (username, token)
-
-# Send a GET request to the GitHub API to retrieve user information
-response = requests.get('https://api.github.com/user', auth=auth)
-
-# Print the user id or None if authentication fails
-if response.status_code == 200:
-    user_info = response.json()
-    print(user_info['id'])
-else:
-    print(None)
-```
-
 1. We import the `requests` package for making HTTP requests and `sys` for handling command-line arguments.
 
 2. We retrieve the GitHub username and personal access token from the command-line arguments.
@@ -407,33 +242,6 @@ else:
 5. If the response status code is 200 (OK), we parse the JSON response and print the user id. Otherwise, we print `None` to indicate authentication failure.
 
 ### 100-github_commits.py
-
-```python
-import requests
-import sys
-
-# Get the repository name and owner name from command-line arguments
-repository_name = sys.argv[1
-
-]
-owner_name = sys.argv[2]
-
-# Construct the URL for retrieving commits
-url = f"https://api.github.com/repos/{owner_name}/{repository_name}/commits"
-
-# Send a GET request to the GitHub API to retrieve commit information
-response = requests.get(url)
-
-# Check if the response is successful (status code 200)
-if response.status_code == 200:
-    commits = response.json()
-    for commit in commits[:10]:  # Get the first 10 commits
-        sha = commit['sha']
-        author_name = commit['commit']['author']['name']
-        print(f"{sha}: {author_name}")
-else:
-    print("Error: Unable to fetch commits")
-```
 
 1. We import the `requests` package for making HTTP requests and `sys` for handling command-line arguments.
 
