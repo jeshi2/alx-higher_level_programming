@@ -28,7 +28,7 @@ request(url, (error, response, body) => {
         // If an error occurs while writing to the file, print the error
         console.error(err);
       } else {
-        //console.log(`Content saved to ${filePath}`);
+        // console.log(`Content saved to ${filePath}`);
       }
     });
   }
